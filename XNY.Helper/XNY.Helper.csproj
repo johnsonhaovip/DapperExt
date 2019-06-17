@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{99128AC1-55B1-4B59-8514-5A6DC9075CE6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XNY.Helper</RootNamespace>
+    <AssemblyName>XNY.Helper</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.0\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\packages\Autofac.Mvc5.3.3.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\MongoDB.Bson.2.2.0\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\MongoDB.Driver.2.2.0\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.2.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MetroWeb\packages\XNY\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common">
+      <HintPath>..\packages\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\packages\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis">
+      <HintPath>..\packages\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\packages\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages">
+      <HintPath>..\packages\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment">
+      <HintPath>..\packages\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor">
+      <HintPath>..\packages\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Caching\CacheExtensions.cs" />
+    <Compile Include="Caching\ICacheManager.cs" />
+    <Compile Include="Caching\MemoryCacheManager.cs" />
+    <Compile Include="Caching\MongodbCacheManager.cs" />
+    <Compile Include="Caching\RedisManager.cs" />
+    <Compile Include="Configuration\ConfigLoader.cs" />
+    <Compile Include="Configuration\MongoDbConfig.cs" />
+    <Compile Include="Configuration\PubConstant.cs" />
+    <Compile Include="Configuration\RedisDbConfig.cs" />
+    <Compile Include="Configuration\SerializationHelper.cs" />
+    <Compile Include="Configuration\SiteConfig.cs" />
+    <Compile Include="Configuration\Utils.cs" />
+    <Compile Include="Configuration\XNYConfig.cs" />
+    <Compile Include="Constants\EnumErrors.cs" />
+    <Compile Include="Cryption\AesEncrypt.cs" />
+    <Compile Include="Cryption\Base64Encrypt.cs" />
+    <Compile Include="Cryption\CommonEncrypt.cs" />
+    <Compile Include="Cryption\DesEncrypt.cs" />
+    <Compile Include="Data\DataTableHelper.cs" />
+    <Compile Include="Data\SqlDataReaderHelper.cs" />
+    <Compile Include="Extensions\ControllerExtension.cs" />
+    <Compile Include="Extensions\EnumExtension.cs" />
+    <Compile Include="Extensions\ExportToExcel.cs" />
+    <Compile Include="Extensions\ExportToPdf.cs" />
+    <Compile Include="Extensions\JsonExtension.cs" />
+    <Compile Include="Extensions\LogHelper.cs" />
+    <Compile Include="Extensions\NetworkExtension.cs" />
+    <Compile Include="Extensions\NoLogOnException.cs" />
+    <Compile Include="Extensions\ObjectExtension.cs" />
+    <Compile Include="Extensions\OperationResult.cs" />
+    <Compile Include="Extensions\ResultJson.cs" />
+    <Compile Include="Extensions\TypeExtension.cs" />
+    <Compile Include="Infrastructure\AppDomainTypeFinder.cs" />
+    <Compile Include="Infrastructure\ContainerManager.cs" />
+    <Compile Include="Infrastructure\EngineContext.cs" />
+    <Compile Include="Infrastructure\IDependencyRegistrar.cs" />
+    <Compile Include="Infrastructure\IEngine.cs" />
+    <Compile Include="Infrastructure\IStartupTask.cs" />
+    <Compile Include="Infrastructure\ITypeFinder.cs" />
+    <Compile Include="Infrastructure\Singleton.cs" />
+    <Compile Include="Infrastructure\WebApiEngine.cs" />
+    <Compile Include="Infrastructure\WebAppTypeFinder.cs" />
+    <Compile Include="Infrastructure\XNYEngine.cs" />
+    <Compile Include="Net\IMsmqClient.cs" />
+    <Compile Include="Net\MsmqClient.cs" />
+    <Compile Include="PagedList\IPagedList.cs" />
+    <Compile Include="PagedList\PagedList.cs" />
+    <Compile Include="PagedList\PageLinqExtensions.cs" />
+    <Compile Include="PagedList\PageOption.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="String\NPinyin\Pinyin.cs" />
+    <Compile Include="String\NPinyin\PyCode.cs" />
+    <Compile Include="String\NPinyin\PyHash.cs" />
+    <Compile Include="String\StringHelper.cs" />
+    <Compile Include="String\ValidateHelper.cs" />
+    <Compile Include="String\ValueHelper.cs" />
+    <Compile Include="UI\Drawing\CaptchaGenerator.cs" />
+    <Compile Include="UI\Paging\MvcAjaxOptions.cs" />
+    <Compile Include="UI\Paging\PagerBuilder.cs" />
+    <Compile Include="UI\Paging\PagerHelper.cs" />
+    <Compile Include="UI\Paging\PagerItem.cs" />
+    <Compile Include="UI\Paging\PagerOptions.cs" />
+    <Compile Include="UI\Scripts\JavascriptExtension.cs" />
+    <Compile Include="Web\CookieHelper.cs" />
+    <Compile Include="Web\FileUploader.cs" />
+    <Compile Include="Web\FtpDownloader.cs" />
+    <Compile Include="Web\HttpHelper.cs" />
+    <Compile Include="Web\ImageHelper.cs" />
+    <Compile Include="Web\WebCommon.cs" />
+    <Compile Include="WeChatMsg\TempletMessge.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
